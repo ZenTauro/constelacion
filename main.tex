@@ -10,8 +10,13 @@
 \usepackage{wrapfig}
 \usepackage{float}
 \usepackage[spanish]{babel}
+\usepackage{pgf, tikz, pgfplots}
+\usepackage{mathrsfs}
 
-\newcommand{\partder}[1]{\frac{\partial}{\partial 1}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{arrows}
+
+\newcommand{\partder}[1]{\frac{\partial}{\partial #1}}
 
 \title{Cálculo de la región de decisión}
 \author{Pedro Gómez Martín}
@@ -57,8 +62,39 @@ dicta la tendencia a la señal transmitida.
 
 \begin{align}
   \label{eq:development}
-  F_n = -\nabla f_n\left( x, y \right) &= -\nabla \frac{1}{\left( x - x_n \right)^2 + \left( y - y_n \right)^2}\\
-  &= \partdev{x}
+  F_n\left( x, y \right) &= -\nabla f_n\left( x, y \right)\\
+  &= - \partder{x} f_n \left( x, y \right) \vec{i} - \partder{y} f_n \left( x, y \right) \vec{j}
 \end{align}
+
+Procedemos a derivar una función más general.
+
+\begin{align}
+  \label{eq:derivative}
+  - \partder{n} f_i \left( n, m \right) &= - \partder{n} \left[ \frac{1}{\left( n - n_i \right)^2 + \left( m - m_i \right)^2 } \right]\\
+  &= - \partder{n} \left( \left( n - n_i \right)^2 + \left( m - m_i \right)^2 \right)^{-1}\\
+  &= - 2\left( \left( \left( n - n_i \right) + \left( m - m_i \right) \right)^2 \right)^{-1} \left( n - n_i \right)\\
+  &= - \frac{n - n_i}{\left( \left( n - n_i \right) + \left( m - m_i \right) \right)^2}
+\end{align}
+
+Caracterizando $\partder{n}f_i\left( n, m \right)$ con $n = x, m = y$ y viceversa
+obtenemos el campo vectorial.
+
+\begin{align}
+  \label{eq:development2}
+  F_i(x,y) = - 2 \left(
+  \begin{array}{c}
+    \frac{x - x_n}{\left( \left( x - x_n \right)^2 + \left( y - y_n \right)^2\right)^2}\\
+    \frac{y - y_n}{\left( \left( x - x_n \right)^2 + \left( y - y_n \right)^2\right)^2}
+  \end{array}
+  \right)
+\end{align}
+
+\subsection{Ejemplo}
+\begin{figure}[h!]
+  \centering
+  \input{vec.tikz}
+  \caption{Campo vectorial}
+  \label{fig:vecfield}
+\end{figure}
 
 \end{document}
