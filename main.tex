@@ -89,10 +89,39 @@ obtenemos el campo vectorial.
   \right)
 \end{align}
 
-\subsection{Ejemplo}
+Aplicando el principio de superposición, podemos obtener la siguiente fórmula,
+donde $i$ representa el índice de los símbolos y $S$ el conjunto de todos los
+símbolos posibles.
+\begin{align}
+  \label{eq:superposition}
+  \vec{T_S}(x,y) = \sum\limits_{i} \vec{F_i}\left( x, y\right)
+\end{align}
+
+Si resolvemos $\vec{T_S}(x,y) = \vec{0}$, obtendremos la ecuaciones que delimitan
+las regiones de decisión.
+
+\subsection{Generalización a $\mathbb{R}^n$}
+Aun que se ha desarrollado para una función $f$ de dos variables, se puede
+generalizar a $f: \mathbb{R}^n \rightarrow \mathbb{R}$, donde $n$ viene dado por la dimensión de la base
+del espacio de símbolos. Y $f$ se puede definir de la siguiente forma:
+\begin{align}
+  \label{eq:generalf}
+  f(x_1, x_2, \cdots ,x_n) = \frac{1}{(x_1 - x_{1i})^2 + (x_2 - x_{2i})^2 + \cdots + (x_n - x_{ni})^2}
+\end{align}
+Obteniendo lo siguiente: \footnote{Este método se puede utilizar para el cálculo
+de diagramas de Voronoi en $\mathbb{R}^n$ con las soluciones a $T_S = \vec{0}$}
+\begin{align}
+  \label{eq:generalF}
+  \vec{T_S}(x_1, x_2, \cdots , x_n) &= \sum_i -\nabla f(x_1, x_2, \cdots ,x_n)
+\end{align}
+
+\section{Ejemplo}
+Si consideramos dos símbolos con una base compuesta por por dos vectores
+$\Phi_1$ y $\Phi_2$, con coordenadas $S_1=(x_{10}, y_{10})$ y $S_2=(x_{20}, y_{20})$, los podemos
+representar en $\mathbb{R}^2$
 \begin{figure}[h!]
   \centering
-  \input{vec.tikz}
+  \input{./media/vec.tikz}
   \caption{Campo vectorial}
   \label{fig:vecfield}
 \end{figure}
