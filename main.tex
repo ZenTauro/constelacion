@@ -72,8 +72,8 @@ Procedemos a derivar una función más general.
   \label{eq:derivative}
   - \partder{n} f_i \left( n, m \right) &= - \partder{n} \left[ \frac{1}{\left( n - n_i \right)^2 + \left( m - m_i \right)^2 } \right]\\
   &= - \partder{n} \left( \left( n - n_i \right)^2 + \left( m - m_i \right)^2 \right)^{-1}\\
-  &= - 2\left( \left( \left( n - n_i \right)^2 + \left( m - m_i \right) \right)^2 \right)^{-1} \left( n - n_i \right)\\
-  &= - \frac{n - n_i}{\left( \left( n - n_i \right)^2 + \left( m - m_i \right)^2 \right)^2}
+  &= \left( \left( \left( n - n_i \right)^2 + \left( m - m_i \right) \right)^2 \right)^{-1} \cdot \partder{n}\left( n - n_i \right)^2\\
+  &= 2 \frac{n - n_i}{\left( \left( n - n_i \right)^2 + \left( m - m_i \right)^2 \right)^2}
 \end{align}
 
 Caracterizando $\partder{n}f_i\left( n, m \right)$ con $n = x, m = y$ y viceversa
@@ -81,7 +81,7 @@ obtenemos el campo vectorial.
 
 \begin{align}
   \label{eq:development2}
-  F_i(x,y) = - 2 \left(
+  F_i(x,y) = 2 \left(
   \begin{array}{c}
     \frac{x - x_n}{\left( \left( x - x_n \right)^2 + \left( y - y_n \right)^2\right)^2}\\
     \frac{y - y_n}{\left( \left( x - x_n \right)^2 + \left( y - y_n \right)^2\right)^2}
@@ -119,6 +119,12 @@ de diagramas de Voronoi en $\mathbb{R}^n$ con las soluciones a $T_S = \vec{0}$}
 Si consideramos dos símbolos con una base compuesta por por dos vectores
 $\Phi_1$ y $\Phi_2$, con coordenadas $S_1=(x_{10}, y_{10})$ y $S_2=(x_{20}, y_{20})$, los podemos
 representar en $\mathbb{R}^2$
+\begin{figure}[h!]
+  \centering
+  \input{./media/mesh.tikz}
+  \caption{Potencial}
+  \label{fig:pot}
+\end{figure}
 \begin{figure}[h!]
   \centering
   \input{./media/vec.tikz}
