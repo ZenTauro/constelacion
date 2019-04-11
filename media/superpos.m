@@ -1,4 +1,4 @@
-function none = superpos(points)
+function [f,v] = superpos(points)
   x = y = z = linspace (-5, 5, 50)';
   [xx , yy] = meshgrid(x, y);
 
@@ -10,6 +10,7 @@ function none = superpos(points)
   f = figure;
   mesh(xx, yy, r)
   pbaspect([1; 1; 1])
+  axis ([-2,2,-2,2])
   print -dtikz "mesh.tikz"
 
   vx = -2 * (xx - points{1}.x) ./ ((xx - points{1}.x) .^2 + (yy - points{1}.y ) .^2) + eps;
@@ -23,5 +24,6 @@ function none = superpos(points)
   v = figure;
   quiver(xx, yy, vx, vy)
   pbaspect([1, 1])
+  axis ([-2,2,-2,2])
   print -dtikz "vec.tikz"
 endfunction
